@@ -52,7 +52,8 @@ class Training:
     def show_training_info(self) -> InfoMessage:
         """Вернуть информационное сообщение о выполненной тренировке."""
         info_message = InfoMessage(
-            'Running', self.duration,
+            type(self).__name__,
+            self.duration,
             self.get_distance(),
             self.get_mean_speed(),
             self.get_spent_calories())
@@ -72,16 +73,6 @@ class Running(Training):
                          + self.CALORIES_MEAN_SPEED_SHIFT) * self.weight
                          / self.M_IN_KM * (self.duration * self.MIN_IN_H))
         return self.calories
-
-    def show_training_info(self) -> InfoMessage:
-        """Вернуть информационное сообщение о выполненной тренировке."""
-        info_message = InfoMessage(
-            'Running', self.duration,
-            self.get_distance(),
-            self.get_mean_speed(),
-            self.get_spent_calories())
-
-        return info_message
 
 
 class SportsWalking(Training):
@@ -112,16 +103,6 @@ class SportsWalking(Training):
                 * self.CALORIES_SPEED_HEIGHT_MULTIPLIER
                 * self.weight) * (self.duration * self.MIN_IN_H)
 
-    def show_training_info(self) -> InfoMessage:
-        """Вернуть информационное сообщение о выполненной тренировке."""
-        info_message = InfoMessage(
-            'SportsWalking', self.duration,
-            self.get_distance(),
-            self.get_mean_speed(),
-            self.get_spent_calories())
-
-        return info_message
-
 
 class Swimming(Training):
     """Тренировка: плавание."""
@@ -151,16 +132,6 @@ class Swimming(Training):
                          * self.CALORIES_MEAN_SPEED_MULT
                          * self.weight * self.duration)
         return self.calories
-
-    def show_training_info(self) -> InfoMessage:
-        """Вернуть информационное сообщение о выполненной тренировке."""
-        info_message = InfoMessage(
-            'Swimming', self.duration,
-            self.get_distance(),
-            self.get_mean_speed(),
-            self.get_spent_calories())
-
-        return info_message
 
 
 def read_package(workout_type: str, data: list) -> Training:
