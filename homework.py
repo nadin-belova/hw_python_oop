@@ -22,7 +22,7 @@ class InfoMessage:
 
 class Training:
     """Базовый класс тренировки."""
-    LEN_STEP: float = 0.65
+    LEN_STEP_IN_M: float = 0.65
     M_IN_KM: int = 1000
     MIN_IN_H = 60
 
@@ -37,7 +37,7 @@ class Training:
 
     def get_distance(self) -> float:
         """Получить дистанцию в км."""
-        self.distance = self.action * self.LEN_STEP / self.M_IN_KM
+        self.distance = self.action * self.LEN_STEP_IN_M / self.M_IN_KM
         return (self.distance)
 
     def get_mean_speed(self) -> float:
@@ -144,10 +144,6 @@ def read_package(workout_type: str, data: list) -> Training:
     if workout_type not in type_training:  # guard 1
         raise ValueError("Мы так не тренируемся! Можно только так:",
                          *type_training.keys())
-    if type(data) != type(list):  # guard 2
-        raise ValueError("Тип data должен быть:", type(list))
-    if data == []:  # guard 3
-        raise ValueError("Data НЕ должен быть пустым.")
 
     return type_training[workout_type](*data)
 
