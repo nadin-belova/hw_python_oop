@@ -149,7 +149,6 @@ def read_package(workout_type: str, data: list) -> Training:
     if data == []:  # guard 3
         raise ValueError("Data НЕ должен быть пустым.")
 
-
     return type_training[workout_type](*data)
 
 
