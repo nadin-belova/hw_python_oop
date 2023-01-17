@@ -139,8 +139,11 @@ def read_package(workout_type: str, data: list) -> Training:
 
     type_training: dict[str, type[Training]] = {'SWM': Swimming,
                                                 'RUN': Running,
-                                                'WLK': SportsWalking,
-                                                }
+                                                'WLK': SportsWalking}
+
+    if workout_type not in type_training:  # guard 1
+        raise ValueError("Мы так не тренируемся! Можно только так:",
+                         *type_training.keys())
 
     return type_training[workout_type](*data)
 
