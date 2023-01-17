@@ -80,7 +80,6 @@ class SportsWalking(Training):
     CALORIES_WEIGHT_MULTIPLIER: float = 0.035
     CALORIES_SPEED_HEIGHT_MULTIPLIER: float = 0.029
     KMH_IN_MSEC: float = 0.278
-    LEN_STEP: float = 0.65
     M_IN_KM: int = 1000
     CM_IN_M = 100
     MIN_IN_H = 60
@@ -108,7 +107,7 @@ class Swimming(Training):
     """Тренировка: плавание."""
     CALORIES_MEAN_SPEED = 1.1
     CALORIES_MEAN_SPEED_MULT = 2
-    LEN_STEP = 1.38
+    LEN_STEP_IN_M = 1.38
 
     def __init__(self,
                  action: int,
