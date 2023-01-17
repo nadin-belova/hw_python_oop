@@ -107,7 +107,7 @@ def test_Training():
         '`Training` должен быть классом.'
     )
     for attr, value in {
-            'LEN_STEP_IN_M': 0.65,
+            'LEN_STEP': 0.65,
             'M_IN_KM': 1000,
             'MIN_IN_H': 60
     }.items():
@@ -126,10 +126,10 @@ def test_Training():
             'У метода `__init__` класса `Training` должен быть '
             f' параметр {param}.'
         )
-    assert 'LEN_STEP_IN_M' in list(training.__dict__), (
-        'Задайте константу `LEN_STEP_IN_M` в классе `Training`'
+    assert 'LEN_STEP' in list(training.__dict__), (
+        'Задайте константу `LEN_STEP` в классе `Training`'
     )
-    assert training.LEN_STEP_IN_M == 0.65, (
+    assert training.LEN_STEP == 0.65, (
         'Длина шага в классе `Training` должна быть равна 0.65'
     )
     assert 'M_IN_KM' in list(training.__dict__), (
@@ -243,10 +243,10 @@ def test_Swimming():
             'У метода `__init__` класса `Swimming` '
             f' должен быть параметр {param}.'
         )
-    assert 'LEN_STEP_IN_M' in list(swimming.__dict__), (
-        'Задайте константу `LEN_STEP_IN_M` в классе `Swimming`'
+    assert 'LEN_STEP' in list(swimming.__dict__), (
+        'Задайте константу `LEN_STEP` в классе `Swimming`'
     )
-    assert swimming.LEN_STEP_IN_M == 1.38, (
+    assert swimming.LEN_STEP == 1.38, (
         'Длина гребка в классе `Swimming` должна быть равна 1.38'
     )
 

@@ -22,7 +22,7 @@ class InfoMessage:
 
 class Training:
     """Базовый класс тренировки."""
-    LEN_STEP_IN_M: float = 0.65
+    LEN_STEP: float = 0.65  # метра
     M_IN_KM: int = 1000
     MIN_IN_H = 60
 
@@ -37,7 +37,7 @@ class Training:
 
     def get_distance(self) -> float:
         """Получить дистанцию в км."""
-        self.distance = self.action * self.LEN_STEP_IN_M / self.M_IN_KM
+        self.distance = self.action * self.LEN_STEP / self.M_IN_KM
         return (self.distance)
 
     def get_mean_speed(self) -> float:
@@ -107,7 +107,7 @@ class Swimming(Training):
     """Тренировка: плавание."""
     CALORIES_MEAN_SPEED = 1.1
     CALORIES_MEAN_SPEED_MULT = 2
-    LEN_STEP_IN_M = 1.38
+    LEN_STEP = 1.38  # метра
 
     def __init__(self,
                  action: int,
